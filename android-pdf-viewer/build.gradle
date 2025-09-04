@@ -18,7 +18,7 @@ dependencies {
     implementation 'androidx.core:core:1.7.0'
     //api 'com.github.mhiew:pdfium-android:1.9.2'
     //api 'com.github.plateau11:pdfium-android-fixed:1.9.2-fixed'
-    api 'com.github.lion1988dev:PdfiumAndroid:1.9.4'
+    implementation 'com.github.lion1988dev:PdfiumAndroid:1.9.4'
 }
 
 // Maven Publishing
