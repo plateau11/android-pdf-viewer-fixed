@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.velocitylabs.sahilthapa'
+    namespace 'com.github.barteksc.pdfviewer'
     compileSdk rootProject.tools.compileSdk
 
     defaultConfig {
