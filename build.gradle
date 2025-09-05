@@ -14,8 +14,8 @@ buildscript {
 ext {
     tools = [
             minSdk      : 21,
-            targetSdk   : 31,   // can keep this for now
-            compileSdk  : 34,   // update this
+            targetSdk   : 35,   // can keep this for now
+            compileSdk  : 35,   // update this
             versionName : '3.2.0-beta.3'
     ]
 }
