@@ -13,7 +13,7 @@ android {
         versionName "${rootProject.tools.versionName}"
     }
 
-    ndkVersion "27.3.13750724"
+
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -23,7 +23,13 @@ android {
 
 dependencies {
     implementation 'androidx.core:core:1.7.0'
-    api 'com.github.marain87:PdfiumAndroid:1.9.8'
+    implementation('com.github.marain87:PdfiumAndroid:1.9.8') {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib'
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-common'
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+    }
+
 }
 
 ext {
