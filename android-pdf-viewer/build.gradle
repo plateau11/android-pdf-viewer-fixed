@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
 }
 
 android {
@@ -13,11 +14,14 @@ android {
         versionName "${rootProject.tools.versionName}"
     }
 
-
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
+    }
+
+    // ✅ Required for AGP 7+ to expose a component for publishing
+    publishing {
+        singleVariant("release")
     }
 }
 
@@ -29,11 +33,24 @@ dependencies {
         exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
         exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
     }
-
 }
 
 ext {
     PUBLISH_GROUP_ID = 'com.github.mhiew'
     PUBLISH_VERSION = "${rootProject.tools.versionName}"
     PUBLISH_ARTIFACT_ID = 'android-pdf-viewer'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components["release"]
+
+                groupId = PUBLISH_GROUP_ID
+                artifactId = PUBLISH_ARTIFACT_ID
+                version = PUBLISH_VERSION
+            }
+        }
+    }
 }
